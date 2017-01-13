@@ -3,12 +3,17 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Mi primer controller AngularJS</title>
+	<title>Agenda de Alumnos</title>
 	<link rel="stylesheet" href="">
 </head>
-<body ng-controller="AlumnoController">
-	{{alumno.nombre}} esta estudiando {{alumno.curso}}
+<body ng-controller="AlumnosController">
+	<h1>Cuaderno de alumnos</h1>
+	<div ng-repeat="alumno in alumnos">
+		<div>{{alumno.nombre}} - {{alumno.telefono}}</div>
+		<span>{{alumno.curo}}</span>
+	</div>
+
 	<script src="node_modules/angular/angular.min.js" type="text/javascript"></script>
-	<script src="controllers/alumnosController.js" type="text/javascript"></script>
+	<script src="controllers/AlumnosController.js" type="text/javascript"></script>
 </body>
 </html>
