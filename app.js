@@ -1,23 +1,29 @@
 //Cargamos express
 var express = require("express");
-var __path ="D:\\webs\\AngularJS\\";
+var path =  require("path");
+
+var basePath ="D:\\webs\\AngularJS";
+var controllePath = path.join(basePath,'controllers');
+var cssPath = path.join(basePath,'css');
 
 // ejecuctamos express y creamos una aplicacion
 var app = express();
-app.use('/controllers',express.static(__path+'controllers'));
-app.use('/css',express.static(__path+'css'));
-app.get("/", index);
+
+// <- FOLDERS ->
+app.use('/controllers',express.static(controllePath));
+app.use('/css',express.static(cssPath));
+
+//<- ROUTING ->
+app.get("/", function (req,res){
+	var myPath = path.join(basePath,"index.html");
+	res.sendFile(myPath);
+});
+
 app.get("/alumnos",alumnos);
-
-
-function index(request,response)
-{
-	response.sendFile(__path+"index.html");
-}
-
 function alumnos(request,response)
 {
-	response.sendFile(__path+"alumnos.html");
+	var myPath = path.join(basePath,"alumnos.html");
+	response.sendFile(myPath);
 }
 
 app.listen(80);

@@ -23,6 +23,15 @@ module.exports = function(grunt) {
         src:"unidos.js",
         dest:"build/MyAppAngularJS.min.js"
       }
+    },
+    cmd:{
+      multiple:{
+        command:[
+                'del unidos.js',
+                'mkdir deploy',
+                'move build\\unidos.min.js deploy\\undos.min.js',
+                ].join('&&')
+      }
     }
   });
 
@@ -30,6 +39,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.registerTask('default', ['jshint','concat','uglify']);
-
+  grunt.loadNpmTasks('grunt-cmd');
+  grunt.registerTask('default', ['jshint','concat','uglify','cmd']);
 };
