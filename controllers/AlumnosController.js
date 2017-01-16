@@ -1,4 +1,6 @@
-function AlumnosController($scope){
+var myApp = angular.module('myApp',[]);
+
+myApp.controller('AlumnosController', ['$scope', function($scope){
 	
 	$scope.alumnos=[
 		{id:1,nombre:"Pepito Perez",curso:"1º ESO",telefono:666666666},
@@ -31,7 +33,6 @@ function AlumnosController($scope){
 	/**
 	 * Elimina el alumno con idAlumno de los alumnos
 	 * @param  {id del aumno a eliminar}
-	 * 
 	 */
 	$scope.remove=function(idAlumno){
 		var newAlumnos = $scope.alumnos.filter(function(alumno){
@@ -43,13 +44,17 @@ function AlumnosController($scope){
 
 	/**
 	 * Muestra el formulario
- 	*/
+ 	 */
 	$scope.showForm = function(){
 		$scope.formVisivility = true;
 	}
 
+	/**
+	 * Oculta el formulario de entrada
+	 */
 	$scope.hideForm = function(){
 		$scope.formVisivility = false;
 	}
 	
 }
+]);
