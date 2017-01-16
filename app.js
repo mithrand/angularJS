@@ -1,6 +1,7 @@
 //Cargamos express
 var express = require("express");
 var __path ="D:\\webs\\AngularJS\\";
+
 // ejecuctamos express y creamos una aplicacion
 var app = express();
 app.use('/controllers',express.static(__path+'controllers'));

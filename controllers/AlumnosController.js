@@ -24,11 +24,11 @@ myApp.controller('AlumnosController', ['$scope', function($scope){
 			curso:$scope.nuevoAlumno.curso,
 			telefono:$scope.nuevoAlumno.telefono,
 			id:new Date().getTime()
-		}
+		};
 
 		$scope.alumnos.push(nuevoAlumno);
 		$scope.hideForm();
-	}
+	};
 
 	/**
 	 * Elimina el alumno con idAlumno de los alumnos
@@ -39,7 +39,7 @@ myApp.controller('AlumnosController', ['$scope', function($scope){
 			return alumno.id!=idAlumno;}
 			);
 		$scope.alumnos = newAlumnos;
-	}
+	};
 
 
 	/**
@@ -47,14 +47,14 @@ myApp.controller('AlumnosController', ['$scope', function($scope){
  	 */
 	$scope.showForm = function(){
 		$scope.formVisivility = true;
-	}
+	};
 
 	/**
 	 * Oculta el formulario de entrada
 	 */
 	$scope.hideForm = function(){
 		$scope.formVisivility = false;
-	}
+	};
 	
 }
 ]);
